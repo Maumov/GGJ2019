@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:GGJ2019/Assets/Materials/Piso.mat.meta
 guid: ed962de83aaf25e40b386e88b1169d33
 NativeFormatImporter:
+=======
+guid: 8b4d0448858514f4880985c2dcbdd8af
+MonoImporter:
+>>>>>>> master:GGJ2019/Assets/ParteAntonio/PlaneBehaviour.cs.meta
   externalObjects: {}
   mainObjectFileID: 2100000
   userData: 
