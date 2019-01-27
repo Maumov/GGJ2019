@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Move(){
 		
 		Vector3 direction = cameraController.transform.rotation * new Vector3(horizontal, 0f, vertical);
+		direction -= Vector3.up;
 		characterController.Move(direction * MovementSpeed * Time.deltaTime);
 
 		anim.SetFloat("Vertical",direction.z);
