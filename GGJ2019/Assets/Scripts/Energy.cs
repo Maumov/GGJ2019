@@ -23,7 +23,7 @@ public class Energy : MonoBehaviour {
 	}
 
 	void Update () {
-		currentEnergy -= Time.deltaTime + (usingLight? 2f : 1f);
+		currentEnergy -= Time.deltaTime * (usingLight? 2f : 1f);
 		if(currentEnergy < 0f){
 			GameOver();	
 		}
@@ -32,24 +32,10 @@ public class Energy : MonoBehaviour {
 			theLight.enabled = usingLight;
 			biped.solvers.rightHand.IKPositionWeight = usingLight? 1f : 0f ;
 		}
-
-        if (!recoveryEnergy)
-        {
-            if (lamp.isActiveAndEnabled)
-                currentEnergy -= Time.deltaTime * 2;
-            else
-                currentEnergy -= Time.deltaTime;
-
-            if (currentEnergy <= 0f)
-            {
-                GameOver();
-            }
-        }
-        else
-        {
-            currentEnergy += recoveryRate / 100;
-            currentEnergy = Mathf.Clamp(currentEnergy, 0, maxEnergy);
-        }
+		if(recoveryEnergy){
+			currentEnergy += recoveryRate * Time.deltaTime;
+			currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
+		}
 	}
 
 	public void GameOver(){
