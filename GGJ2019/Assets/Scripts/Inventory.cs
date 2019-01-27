@@ -19,13 +19,13 @@ public class Inventory : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("InGameObject"))
+		if (other.tag.Equals("InGameObject"))
         {
             if (currentItem == null)
             {
                 currentItem = other.gameObject;
                 currentItem.transform.position = referencePosition.position;
-                currentItem.transform.parent = transform;
+				currentItem.transform.SetParent(referencePosition);
             }
             else
                 Debug.Log("No more items available.");

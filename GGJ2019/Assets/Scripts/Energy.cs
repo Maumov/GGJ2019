@@ -12,6 +12,14 @@ public class Energy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		currentEnergy -= Time.deltaTime;
+		if(currentEnergy < 0f){
+			GameOver();	
+		}
+
+	}
+
+	public void GameOver(){
 		
 	}
 }
