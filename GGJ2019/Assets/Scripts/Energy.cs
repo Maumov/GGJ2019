@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RootMotion.FinalIK;
+using UnityEngine.UI;
 
 public class Energy : MonoBehaviour {
 
@@ -17,6 +18,7 @@ public class Energy : MonoBehaviour {
     public Light lamp;
     public bool recoveryEnergy = false;
 
+	public Slider slider;
 	// Use this for initialization
     void Start () {
 		currentEnergy = maxEnergy;
@@ -24,7 +26,8 @@ public class Energy : MonoBehaviour {
 
 	void Update () {
 		currentEnergy -= Time.deltaTime * (usingLight? 2f : 1f);
-		if(currentEnergy < 0f){
+
+		if(currentEnergy <= 0f){
 			GameOver();	
 		}
 		if(Input.GetButtonDown("Fire1")){
@@ -34,12 +37,16 @@ public class Energy : MonoBehaviour {
 		}
 		if(recoveryEnergy){
 			currentEnergy += recoveryRate * Time.deltaTime;
-			currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
 		}
+		currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
+		slider.value = currentEnergy/maxEnergy;
 	}
 
 	public void GameOver(){
-		GetComponentInChildren<Animator>().SetTrigger("Death");
+		//GetComponentInChildren<Animator>().SetTrigger("Death");
+
+		Invoke("BackToMainMenu",2.5f);
+	
 	}
 
 	public void BackToMainMenu(){

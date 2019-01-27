@@ -34,8 +34,15 @@ public class ReceiverController : MonoBehaviour
 				objectives.text = point + "/" + "5" + "Objetos por recoger";
 				Invoke("ApagarTexto", 3f);
             }
+			if(point == 5){
+				Win();
+			}
         }
     }
+
+	void Win(){
+		
+	}
 
 	void ApagarTexto(){
 		panel.SetActive(false);
