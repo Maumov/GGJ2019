@@ -22,4 +22,8 @@ public class Energy : MonoBehaviour {
 	public void GameOver(){
 		
 	}
+
+	public void BackToMainMenu(){
+		
+	}
 }
