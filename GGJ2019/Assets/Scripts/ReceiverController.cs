@@ -11,8 +11,15 @@ public class ReceiverController : MonoBehaviour
     public GameObject canvasLocal;
     public GameObject canvasGlobal;
     public GameObject item;
-    public Transform[] position;
+	public GameObject panel;
+	public Text objectives;
     private int point = 0;
+	 
+	void Start(){
+		panel.SetActive(true);
+		objectives.text = point + "/" + "5" + "Objetos por recoger";
+		Invoke("ApagarTexto", 3f);
+	}
 
     void Update()
     {
@@ -20,16 +27,19 @@ public class ReceiverController : MonoBehaviour
         {
             if (Input.GetKeyUp(KeyCode.R))
             {
-                Debug.Log(point.ToString() + item.transform.position);
-                item.transform.SetParent(position[point].transform);
-                item.transform.position = position[point].transform.position;
-                item.transform.localScale = Vector3.one * 0.7f;
-                item.transform.rotation = Quaternion.LookRotation(Vector3.up);
                 point++;
                 player.GetComponent<Inventory>().currentItem = null;
+				Destroy(player.GetComponent<Inventory>().referencePosition.GetChild(0).gameObject);
+				panel.SetActive(true);
+				objectives.text = point + "/" + "5" + "Objetos por recoger";
+				Invoke("ApagarTexto", 3f);
             }
         }
     }
+
+	void ApagarTexto(){
+		panel.SetActive(false);
+	}
 
     private void OnTriggerEnter(Collider other)
     {
