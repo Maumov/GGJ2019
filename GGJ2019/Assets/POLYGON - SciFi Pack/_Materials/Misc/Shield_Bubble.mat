@@ -4,13 +4,15 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Shield_Bubble
   m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
   stringTagMap:
     RenderType: Transparent
@@ -77,5 +79,5 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 0.828158, g: 0.9411765, b: 0.42906576, a: 0.241}
-    - _EmissionColor: {r: 0.010813148, g: 0.12655118, b: 0.18382353, a: 1}
+    - _EmissionColor: {r: 0.025089826, g: 0.25282827, b: 0.36862746, a: 1}
     - _SpecColor: {r: 0.44966292, g: 0.43809476, b: 0.53676474, a: 1}

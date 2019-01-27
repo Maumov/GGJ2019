@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour {
 	float MouseY;
 	public float MouseXSpeed, MouseYSpeed;
 	public float minAngle, maxAngle;
+	public Transform target;
 	Transform   child;
 	// Use this for initialization
 	void Start () {
@@ -34,6 +35,7 @@ public class CameraController : MonoBehaviour {
 	}
 
 	void Move(){
+		transform.position = target.transform.position;
 		transform.RotateAround(transform.position, Vector3.up, MouseX * MouseXSpeed * Time.deltaTime);
 		child.RotateAround(transform.position, transform.right, MouseY * MouseYSpeed * Time.deltaTime);
 	}
