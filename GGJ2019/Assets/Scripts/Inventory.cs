@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
     public GameObject currentItem;
     public Transform referencePosition;
     public float angularSpeed = 100;
+    public Transform position;
 
     void Update()
     {
@@ -24,6 +25,8 @@ public class Inventory : MonoBehaviour
             if (currentItem == null)
             {
                 currentItem = other.gameObject;
+                Collider collider = currentItem.GetComponent<Collider>();
+                collider.enabled = false;
                 currentItem.transform.position = referencePosition.position;
 				currentItem.transform.SetParent(referencePosition);
             }
