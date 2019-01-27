@@ -35,7 +35,6 @@ public class ObstacleBehaviour : MonoBehaviour
     public float distance = 0.1f;
     private float damping = 0;
 
-    private Transform[] positions;
     private Vector3 currentPlayerPosition;
     private Vector3 SmashPosition;
     private Vector3 tempPosition;
@@ -58,7 +57,7 @@ public class ObstacleBehaviour : MonoBehaviour
             seekPlayer = false;
             goDown = false;
             shake = true;
-            SmashPosition = new Vector3(currentPlayerPosition.x, player.transform.position.y + 0.5f, currentPlayerPosition.z);
+            SmashPosition = new Vector3(currentPlayerPosition.x, player.transform.position.y, currentPlayerPosition.z);
         }
 
         if(chase && goDown && seekAndDestroy && !readyToSmash && !(Vector3.Distance(obstacle.transform.position, currentPlayerPosition) < distance))

@@ -27,7 +27,22 @@ public class Button : MonoBehaviour
 
     void Update()
     {
-        DoorOpening(openingDoor, completed);
+		if (openingDoor && !completed)
+		{
+			damping += Time.deltaTime;
+			referencePoint.position = Vector3.Lerp(referencePoint.position, down + Vector3.down, (speed / 1000) * damping);
+			if (Vector3.Distance(referencePoint.position, down) < distance)
+			{
+				completed = true;
+				referencePoint.position = down + Vector3.down;
+				//display sound here.
+			}
+		}
+
+		if (!openingDoor && !completed)
+		{
+			referencePoint.position = Vector3.Lerp(referencePoint.position, up, restoreSpeed * Time.deltaTime);
+		}
     }
 
     private void OnTriggerStay(Collider other)
@@ -48,26 +63,6 @@ public class Button : MonoBehaviour
             openingDoor = false;
             exitDamping = 20;
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 0f, transform.position.z), speed * exitDamping);
-        }
-    }
-
-    public void DoorOpening(bool opening, bool completed)
-    {
-        if (openingDoor && !completed)
-        {
-            damping += Time.deltaTime;
-            referencePoint.position = Vector3.Lerp(referencePoint.position, down + Vector3.down, (speed / 1000) * damping);
-            if (Vector3.Distance(referencePoint.position, down) < distance)
-            {
-                completed = true;
-                referencePoint.position = down + Vector3.down;
-                //display sound here.
-            }
-        }
-
-        if (!openingDoor && !completed)
-        {
-            referencePoint.position = Vector3.Lerp(referencePoint.position, up, restoreSpeed * Time.deltaTime);
         }
     }
 }
