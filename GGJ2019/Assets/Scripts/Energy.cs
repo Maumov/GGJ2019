@@ -7,25 +7,22 @@ public class Energy : MonoBehaviour {
 
     public float maxEnergy = 100;
 	public float currentEnergy;
-<<<<<<< HEAD
 
 	bool usingLight;
 	public Light theLight;
 	public BipedIK biped;
-	// Use this for initialization
-	void Start () {
-=======
+
+
     public float recoveryRate;
     public Light lamp;
     public bool recoveryEnergy = false;
 
+	// Use this for initialization
     void Start () {
->>>>>>> master
 		currentEnergy = maxEnergy;
 	}
 
 	void Update () {
-<<<<<<< HEAD
 		currentEnergy -= Time.deltaTime + (usingLight? 2f : 1f);
 		if(currentEnergy < 0f){
 			GameOver();	
@@ -35,8 +32,6 @@ public class Energy : MonoBehaviour {
 			theLight.enabled = usingLight;
 			biped.solvers.rightHand.IKPositionWeight = usingLight? 1f : 0f ;
 		}
-=======
->>>>>>> master
 
         if (!recoveryEnergy)
         {
@@ -58,14 +53,11 @@ public class Energy : MonoBehaviour {
 	}
 
 	public void GameOver(){
-<<<<<<< HEAD
 		GetComponentInChildren<Animator>().SetTrigger("Death");
 	}
 
 	public void BackToMainMenu(){
-		
-=======
+
         Debug.Log("hi, hora de morir");
->>>>>>> master
 	}
 }
