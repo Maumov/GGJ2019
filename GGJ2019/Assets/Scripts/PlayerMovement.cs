@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		characterController = GetComponent<CharacterController>();
-		cameraController = GetComponentInChildren<CameraController>();
+		cameraController = FindObjectOfType<CameraController>();
 		anim = GetComponentInChildren<Animator>();
 	}
 
@@ -31,10 +31,14 @@ public class PlayerMovement : MonoBehaviour {
 	void Move(){
 		
 		Vector3 direction = cameraController.transform.rotation * new Vector3(horizontal, 0f, vertical);
+		if(direction.magnitude > 0.2f){
+			transform.LookAt(transform.position + direction);	
+		}
 		direction -= Vector3.up;
 		characterController.Move(direction * MovementSpeed * Time.deltaTime);
 
-		anim.SetFloat("Vertical",direction.z);
-		anim.SetFloat("Horizontal",direction.x);
+		anim.SetFloat("Vertical",vertical);
+		anim.SetFloat("Horizontal",horizontal);
+
 	}
 }
