@@ -4,26 +4,13 @@ using UnityEngine;
 
 public class EnergyRecovery : MonoBehaviour
 {
-    public float maxHealth = 100;
-    public float health = 50;
-    public float recoveryRate;
-    private bool updateHealth = false;
-
-    void Update()
-    {
-        if (updateHealth)
-        {
-            health += recoveryRate / 100;
-            health = Mathf.Clamp(health, 0, maxHealth);
-            Debug.Log("Health: " + health);
-        }
-    }
+    public Energy energy;
 
     private void OnTriggerStay(Collider other)
     {
         if (other.name.Contains("Player"))
         {
-            updateHealth = true;
+            energy.recoveryEnergy = true;
         }
     }
 
@@ -31,7 +18,7 @@ public class EnergyRecovery : MonoBehaviour
     {
         if (other.name.Contains("Player"))
         {
-            updateHealth = false;
+            energy.recoveryEnergy = false;
         }
     }
 }

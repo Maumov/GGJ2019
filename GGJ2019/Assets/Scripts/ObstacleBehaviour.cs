@@ -135,7 +135,6 @@ public class ObstacleBehaviour : MonoBehaviour
         if (other.name.Contains("Player"))
         {
             chase = true;
-            Debug.Log(chase);
         }
     }
 

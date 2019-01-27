@@ -13,7 +13,6 @@ public class HammerBehaviour : MonoBehaviour
 
     public float damping = 0;
     private bool activate = true;
-    private bool updateRotation = true;
     private bool falling = true;
     private bool rotationCompleted = false;
     private bool looking = false;

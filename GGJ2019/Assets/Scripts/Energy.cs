@@ -3,23 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Energy : MonoBehaviour {
-	public float maxEnergy;
+
+    public float maxEnergy = 100;
 	public float currentEnergy;
-	// Use this for initialization
-	void Start () {
+    public float recoveryRate;
+    public Light lamp;
+    public bool recoveryEnergy = false;
+
+    void Start () {
 		currentEnergy = maxEnergy;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		currentEnergy -= Time.deltaTime;
-		if(currentEnergy < 0f){
-			GameOver();	
-		}
 
+	void Update () {
+
+        if (!recoveryEnergy)
+        {
+            if (lamp.isActiveAndEnabled)
+                currentEnergy -= Time.deltaTime * 2;
+            else
+                currentEnergy -= Time.deltaTime;
+
+            if (currentEnergy <= 0f)
+            {
+                GameOver();
+            }
+        }
+        else
+        {
+            currentEnergy += recoveryRate / 100;
+            currentEnergy = Mathf.Clamp(currentEnergy, 0, currentEnergy);
+        }
 	}
 
 	public void GameOver(){
-		
+        Debug.Log("hi, hora de morir");
 	}
 }
