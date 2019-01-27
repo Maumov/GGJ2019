@@ -48,7 +48,7 @@ public class Energy : MonoBehaviour {
         else
         {
             currentEnergy += recoveryRate / 100;
-            currentEnergy = Mathf.Clamp(currentEnergy, 0, currentEnergy);
+            currentEnergy = Mathf.Clamp(currentEnergy, 0, maxEnergy);
         }
 	}
 

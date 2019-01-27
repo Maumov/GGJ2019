@@ -74,4 +74,17 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+<<<<<<< HEAD:GGJ2019/Assets/Materials/OjoZombie.mat
     - _EmissionColor: {r: 1, g: 0, b: 0, a: 1}
+=======
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+<<<<<<< HEAD
+    - _Tint: {r: 0.45283008, g: 0.45283008, b: 0.45283008, a: 0.50000024}
+=======
+<<<<<<< HEAD
+    - _Tint: {r: 0.3584909, g: 0.103150666, b: 0.14746845, a: 0.99999934}
+=======
+    - _Tint: {r: 0.45066243, g: 0.44479516, b: 0.44581354, a: 0.5114891}
+>>>>>>> master
+>>>>>>> ea181cb32bf6381ed5979ff6634a27f294b6f3bc
+>>>>>>> master:GGJ2019/Assets/Materials/Skybox.mat
