@@ -14,7 +14,7 @@ public class ReceiverController : MonoBehaviour
 	public GameObject panel;
 	public Text objectives;
     private int point = 0;
-	 
+	public GameObject WinImage;
 	void Start(){
 		panel.SetActive(true);
 		objectives.text = point + "/" + "5" + "Objetos por recoger";
@@ -41,7 +41,8 @@ public class ReceiverController : MonoBehaviour
     }
 
 	void Win(){
-		
+		WinImage.SetActive(true);
+		FindObjectOfType<Energy>().BackToMainMenu3();
 	}
 
 	void ApagarTexto(){

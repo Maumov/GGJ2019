@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RootMotion.FinalIK;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Energy : MonoBehaviour {
 
@@ -19,6 +20,10 @@ public class Energy : MonoBehaviour {
     public bool recoveryEnergy = false;
 
 	public Slider slider;
+	public GameObject deadParticle;
+	bool isDead;
+	public GameObject GameOverImage;
+	public AudioSource audioGameOver;
 	// Use this for initialization
     void Start () {
 		currentEnergy = maxEnergy;
@@ -44,13 +49,22 @@ public class Energy : MonoBehaviour {
 
 	public void GameOver(){
 		//GetComponentInChildren<Animator>().SetTrigger("Death");
-
 		Invoke("BackToMainMenu",2.5f);
-	
+		if(!isDead){
+			Instantiate(deadParticle,transform.position, Quaternion.identity);	
+		}
+		audioGameOver.Play();
+		isDead = true;
 	}
 
 	public void BackToMainMenu(){
-
-        Debug.Log("hi, hora de morir");
+		GameOverImage.SetActive(true);
+		Invoke("BackToMainMenu2",2.5f);
+	}
+	public void BackToMainMenu2(){
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
+	public void BackToMainMenu3(){
+		Invoke("BackToMainMenu2",2.5f);
 	}
 }
