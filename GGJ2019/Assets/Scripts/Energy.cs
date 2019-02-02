@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Energy : MonoBehaviour {
 
+    public PlayerMovement speed;
     public GameObject body;
     public float maxEnergy = 100;
 	public float currentEnergy;
@@ -21,7 +22,8 @@ public class Energy : MonoBehaviour {
 
 	public Slider slider;
 	public GameObject deadParticle;
-	bool isDead;
+    bool isDead = false;
+    bool outside = false;
 	public GameObject GameOverImage;
     public AudioSource audioGameOver;
 	// Use this for initialization
@@ -30,7 +32,8 @@ public class Energy : MonoBehaviour {
 	}
 
 	void Update () {
-		currentEnergy -= Time.deltaTime * (usingLight? 2f : 1f);
+        if (outside)
+            currentEnergy -= Time.deltaTime * (usingLight? 2f : 1f);
 
 		if(currentEnergy <= 0f){
 			GameOver();	
@@ -49,10 +52,11 @@ public class Energy : MonoBehaviour {
 
 	public void GameOver(){
 		//GetComponentInChildren<Animator>().SetTrigger("Death");
-		Invoke("BackToMainMenu", 2.5f);
 		if(!isDead){
-			Instantiate(deadParticle,transform.position, Quaternion.identity);
+            Invoke("BackToMainMenu", 2.5f);
+            Instantiate(deadParticle,transform.position, Quaternion.identity);
             audioGameOver.Play();
+            speed.MovementSpeed = 0;
             body.SetActive(false);
             isDead = true;
         }
@@ -69,4 +73,20 @@ public class Energy : MonoBehaviour {
 	public void BackToMainMenu3(){
         Invoke("BackToMainMenu2",2.5f);
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("Home"))
+        {
+            outside = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag.Equals("Home"))
+        {
+            outside = true;
+        }
+    }
 }
