@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InGameObject
   - SmashTrigger
+  - Home
   layers:
   - Default
   - TransparentFX

@@ -15,9 +15,10 @@ public class ReceiverController : MonoBehaviour
 	public Text objectives;
     private int point = 0;
 	public GameObject WinImage;
-	void Start(){
+
+    void Start(){
 		panel.SetActive(true);
-		objectives.text = point + "/" + "5" + "Objetos por recoger";
+		objectives.text = point + "/" + "5" + " Objetos por recoger";
 		Invoke("ApagarTexto", 3f);
 	}
 
@@ -31,7 +32,7 @@ public class ReceiverController : MonoBehaviour
                 player.GetComponent<Inventory>().currentItem = null;
 				Destroy(player.GetComponent<Inventory>().referencePosition.GetChild(0).gameObject);
 				panel.SetActive(true);
-				objectives.text = point + "/" + "5" + "Objetos por recoger";
+				objectives.text = point + "/" + "5" + " Objetos por recoger";
 				Invoke("ApagarTexto", 3f);
             }
 			if(point == 5){
