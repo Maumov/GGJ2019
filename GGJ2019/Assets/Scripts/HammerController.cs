@@ -5,7 +5,7 @@ using UnityEngine;
 public class HammerController : MonoBehaviour
 {
     [Header("Switches")]
-    public bool start = true;
+    private static bool startHammer = true;
 
     [Header("Base")]
     public Transform player;
@@ -28,16 +28,43 @@ public class HammerController : MonoBehaviour
     private Quaternion previousRotation;
     private Quaternion verticalRotation;
 
+    private IEnumerator completedCoroutine = null;
+
     void Start()
     {
         rotativeRigidbody = rotativeM.GetComponent<Rigidbody>();
         StartCoroutine(Behaviour());
     }
 
+    public void SetHammerStatus(bool status)
+    {
+        if(status == true)
+        {
+            StartCoroutine(Behaviour());
+        }
+        else
+        {
+            startHammer = true;
+        }
+    }
+
+    public bool GetHammerStatus()
+    {
+        if (completedCoroutine == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
     IEnumerator Behaviour()
     {
-        while (start)
+        while (startHammer)
         {
+            completedCoroutine = Behaviour();
             damping = 0;
             vectorDirection = player.position - rotativeM.position;
             vectorDirection.y = basePosition.localPosition.y;
@@ -74,5 +101,7 @@ public class HammerController : MonoBehaviour
             body.rotation = previousRotation;
             yield return new WaitForSeconds(seekAndDestroy);
         }
+
+        completedCoroutine = null;
     }
 }

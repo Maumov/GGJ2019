@@ -10,7 +10,7 @@ public class Energy : MonoBehaviour {
     public PlayerMovement speed;
     public GameObject body;
     public float maxEnergy = 100;
-	public float currentEnergy;
+	public static float currentEnergy;
 
 	bool usingLight;
 	public Light theLight;
@@ -26,26 +26,37 @@ public class Energy : MonoBehaviour {
     bool outside = false;
 	public GameObject GameOverImage;
     public AudioSource audioGameOver;
-	// Use this for initialization
+
+    public delegate void OnEnergyChange();
+    public static event OnEnergyChange onEnergyChange;
+
     void Start () {
 		currentEnergy = maxEnergy;
 	}
 
 	void Update () {
         if (outside)
-            currentEnergy -= Time.deltaTime * (usingLight? 2f : 1f);
+        {
+            currentEnergy -= Time.deltaTime * (usingLight ? 2f : 1f);
+            if (onEnergyChange != null)
+                onEnergyChange.Invoke();
+        }            
 
 		if(currentEnergy <= 0f){
 			GameOver();	
 		}
+
 		if(Input.GetButtonDown("Fire1")){
 			usingLight = !usingLight;
 			theLight.enabled = usingLight;
 			biped.solvers.rightHand.IKPositionWeight = usingLight? 1f : 0f ;
 		}
+
 		if(recoveryEnergy){
 			currentEnergy += recoveryRate * Time.deltaTime;
-		}
+            if (onEnergyChange != null)
+                onEnergyChange.Invoke();
+        }
 		currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
 		slider.value = currentEnergy/maxEnergy;
 	}

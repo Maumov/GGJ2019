@@ -26,7 +26,7 @@ public class ReceiverController : MonoBehaviour
     {
         if (objectAvailable)
         {
-            if (Input.GetKeyUp(KeyCode.R))
+            if (Input.GetAxisRaw("Fire2") == 1)
             {
                 point++;
                 player.GetComponent<Inventory>().currentItem = null;

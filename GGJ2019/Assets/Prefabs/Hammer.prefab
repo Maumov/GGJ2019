@@ -214,7 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b7cd90213346045886b4b9aa994103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start: 1
   player: {fileID: 0}
   rotativeM: {fileID: 2955169910472539600}
   basePosition: {fileID: 2958264984901026750}
@@ -634,6 +633,7 @@ GameObject:
   - component: {fileID: 2959804175885493351}
   - component: {fileID: 2987863875054912965}
   - component: {fileID: 2976894840473992667}
+  - component: {fileID: 1183364865760205079}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -700,6 +700,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1183364865760205079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2956369992802659231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938af23027ea49f4096acc3f798a4beb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDistance: 1.5
+  activationDelay: 2
+  status: 0
 --- !u!1 &2956452370001920709
 GameObject:
   m_ObjectHideFlags: 0
