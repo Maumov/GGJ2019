@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour {
 	public float minAngle, maxAngle;
 	public Transform target;
 	Transform   child;
+    public bool invertY;
 	// Use this for initialization
 	void Start () {
 		child = GetComponentInChildren<Camera>().transform;
