@@ -712,9 +712,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938af23027ea49f4096acc3f798a4beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hammer: {fileID: 2719733411783041788}
   interactDistance: 1.5
   activationDelay: 2
-  status: 0
 --- !u!1 &2956452370001920709
 GameObject:
   m_ObjectHideFlags: 0
