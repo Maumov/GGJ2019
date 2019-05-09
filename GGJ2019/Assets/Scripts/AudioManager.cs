@@ -6,13 +6,18 @@ public class AudioManager : MonoBehaviour
 {
     public AudioSource danger;
     public AudioSource safe;
+    public float switchSpeed;
+    bool inside;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.name.Contains("Player"))
         {
+            inside = true;
             danger.Stop();
             safe.Play();
+            StopAllCoroutines();
+            StartCoroutine(IncreaseValue());
         }
     }
 
@@ -20,8 +25,35 @@ public class AudioManager : MonoBehaviour
     {
         if (other.name.Contains("Player"))
         {
+            inside = false;
             safe.Stop();
             danger.Play();
+
+            StopAllCoroutines();
+            StartCoroutine(IncreaseValue());
         }
+    }
+
+    IEnumerator IncreaseValue()
+    {
+        if (inside)
+        {
+            while(safe.volume < 1)
+            {
+                safe.volume += Time.deltaTime * switchSpeed;
+                danger.volume -= Time.deltaTime * switchSpeed;
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        else
+        {
+            while (danger.volume < 1)
+            {
+                danger.volume += Time.deltaTime * switchSpeed;
+                safe.volume -= Time.deltaTime * switchSpeed;
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        yield return null;
     }
 }
