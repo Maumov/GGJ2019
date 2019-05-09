@@ -14,8 +14,7 @@ public class AudioManager : MonoBehaviour
         if (other.name.Contains("Player"))
         {
             inside = true;
-            danger.Stop();
-            safe.Play();
+            
             StopAllCoroutines();
             StartCoroutine(IncreaseValue());
         }
@@ -26,8 +25,7 @@ public class AudioManager : MonoBehaviour
         if (other.name.Contains("Player"))
         {
             inside = false;
-            safe.Stop();
-            danger.Play();
+           
 
             StopAllCoroutines();
             StartCoroutine(IncreaseValue());

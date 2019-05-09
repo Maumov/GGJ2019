@@ -12827,7 +12827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   danger: {fileID: 1524927181}
   safe: {fileID: 1689939795}
-  switchSpeed: 0
+  switchSpeed: 0.35
 --- !u!4 &406656718 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4855556370681302, guid: 65f76c5f923964045833f09a3f767a16,
@@ -41190,7 +41190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1286781083
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41434,7 +41434,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -49922,7 +49922,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 56cb35ef442da5a4db79811fa295444e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -71724,7 +71724,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Presiona R para guardar las piezas.
+  m_Text: Presiona B para guardar las piezas.
 --- !u!1001 &4079758029178786509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71980,10 +71980,30 @@ PrefabInstance:
       propertyPath: WinImage
       value: 
       objectReference: {fileID: 1134078953}
+    - target: {fileID: 7800832718315599706, guid: 48db7d84e754ad440aae6fb2c79d8559,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800832718315599706, guid: 48db7d84e754ad440aae6fb2c79d8559,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800832718315599706, guid: 48db7d84e754ad440aae6fb2c79d8559,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800832718315599706, guid: 48db7d84e754ad440aae6fb2c79d8559,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 7800832718315599710, guid: 48db7d84e754ad440aae6fb2c79d8559,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7800832717998591964, guid: 48db7d84e754ad440aae6fb2c79d8559,
         type: 3}
@@ -72020,15 +72040,9 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7800832717998591965, guid: 48db7d84e754ad440aae6fb2c79d8559,
+    - target: {fileID: 7800832717998591964, guid: 48db7d84e754ad440aae6fb2c79d8559,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: abd0593c868f49149b6a53105c3fcbe4,
-        type: 3}
-    - target: {fileID: 7800832717998591965, guid: 48db7d84e754ad440aae6fb2c79d8559,
-        type: 3}
-      propertyPath: m_Type
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7800832717998591965, guid: 48db7d84e754ad440aae6fb2c79d8559,

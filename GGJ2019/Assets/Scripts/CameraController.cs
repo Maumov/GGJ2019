@@ -36,7 +36,7 @@ public class CameraController : MonoBehaviour {
 	}
 
 	void Move(){
-		transform.position = target.transform.position;
+        transform.position = target.transform.position;
 		transform.RotateAround(transform.position, Vector3.up, MouseX * MouseXSpeed * Time.deltaTime);
 		child.RotateAround(transform.position, transform.right, MouseY * MouseYSpeed * Time.deltaTime);
 	}

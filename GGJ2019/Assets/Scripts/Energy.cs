@@ -46,7 +46,7 @@ public class Energy : MonoBehaviour {
 			GameOver();	
 		}
 
-		if(Input.GetAxisRaw("Fire1") == 1){
+		if(Input.GetButtonDown("Fire1")){
 			usingLight = !usingLight;
 			theLight.enabled = usingLight;
 			biped.solvers.rightHand.IKPositionWeight = usingLight? 1f : 0f ;
