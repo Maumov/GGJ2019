@@ -69,6 +69,7 @@ public class Energy : MonoBehaviour {
             audioGameOver.Play();
             speed.MovementSpeed = 0;
             body.SetActive(false);
+            onEnergyChange = null;
             isDead = true;
         }
 	}
