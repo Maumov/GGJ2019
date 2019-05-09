@@ -33,7 +33,8 @@ public class BatteryController : MonoBehaviour
         }
         else if (batteryLevel < mediumBatteryRate && batteryLevel >= lowBatteryRate)
         {
-            render.material.color = new Color(230, 126, 34, 1);
+            render.material.color = Color.yellow * Color.red;
+            render.material.color = new Color(230, 126, 34, 255);
         }
         else if (batteryLevel < lowBatteryRate && batteryLevel >= 0f)
         {
